@@ -174,3 +174,40 @@ setInterval(fn,time)
 baarbaarchalo(function(){
     // console.log("Hello World")
 },1000)
+
+
+//impliment a function that returns a function with preset greeting (Closure)
+
+
+function greet(greeting){
+return function (name){
+    console.log(`${greeting} ${name}`)
+}
+}
+
+let greetFnc=greet("hello")
+greetFnc("Yellow")
+greetFnc("Tanzeel")
+greetFnc("Kaise Ho")
+
+
+//impliment a function that takes a callback and only executes it once (HOF + Closure )
+
+function onlyOnceCaller(cb){
+    let executed = false;
+    return function(){
+        if(!executed){
+            executed=true;
+            cb()
+        }else{
+            console.error("Execution exceeded")
+        }
+    }
+}
+
+let caller=onlyOnceCaller(function(){
+    console.log("Only Once Executed");
+})
+caller()
+caller()
+caller()
