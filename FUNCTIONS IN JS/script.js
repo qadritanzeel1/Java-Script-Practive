@@ -155,11 +155,22 @@
 //closures--> closure ik concept hai jis mai function return karta hai ik aur function and returned function mai aap use karte ho parent function ka koi data.
 
 
-function abcd(){
-    let a = 12;
-    return function(){
-        console.log(a)
-    }
+// function abcd(){
+//     let a = 12;
+//     return function(){
+//         console.log(a)
+//     }
+// }
+
+// abcd()
+
+
+//create a function that takes a callback and executes in every 'n' seconds 
+
+function baarbaarchalo(fn,time){
+setInterval(fn,time)
 }
 
-abcd()
+baarbaarchalo(function(){
+    // console.log("Hello World")
+},1000)
