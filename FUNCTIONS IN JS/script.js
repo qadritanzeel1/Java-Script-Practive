@@ -211,3 +211,25 @@ let caller=onlyOnceCaller(function(){
 caller()
 caller()
 caller()
+
+
+
+//impliment  a function that throttles another function (HOF + Closures)
+function throttle(fn,delay){
+    let lastCall = 0;
+    return function (){
+        let now = Date.now();
+        if(now-lastCall>=delay){
+            lastCall=now;
+            fn()
+        }
+    }
+}
+
+ const throttledFn = throttle(() => console.log("Throttled Execution"), 2000);
+ throttledFn()
+ throttledFn()
+ throttledFn()
+ throttledFn()
+ throttledFn()
+ throttledFn()
